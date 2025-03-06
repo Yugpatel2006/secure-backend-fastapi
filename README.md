@@ -10,14 +10,14 @@
 
 ---
 
-## 📜 **Table of Contents**
+## 🐜 **Table of Contents**
 - [✨ Features](#-features)
 - [🛠 Tech Stack](#-tech-stack)
 - [🚀 Installation & Setup](#-installation--setup)
 - [📂 Folder Structure](#-folder-structure)
 - [🔑 API Endpoints](#-api-endpoints)
 - [🎯 Future Improvements](#-future-improvements)
-- [📜 License](#-license)
+- [🐜 License](#-license)
 
 ---
 
@@ -46,3 +46,77 @@
 ```bash
 git clone https://github.com/Yugpatel2006/secure-backend-fastapi.git
 cd secure-backend-fastapi
+```
+
+### 2️⃣ **Create a Virtual Environment & Activate**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
+
+### 3️⃣ **Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ **Set Up Environment Variables**
+Create a `.env` file in the root directory and add:
+```ini
+SECRET_KEY=your_secret_key
+MONGO_URI=your_mongodb_uri
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+
+### 5️⃣ **Run the FastAPI Server**
+```bash
+uvicorn main:app --reload
+```
+🚀 The API will be available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) (Swagger UI)
+
+---
+
+## 📂 **Folder Structure**
+```bash
+secure-backend-fastapi/
+│-- main.py          # Main FastAPI app
+│-- auth/            # Authentication logic
+│   ├── jwt_handler.py  # JWT token functions
+│   ├── hashing.py      # Password hashing utilities
+│   ├── dependencies.py # Security dependencies
+│-- models/          # Database models
+│-- routes/          # API routes
+│-- .env.example     # Example environment file
+│-- README.md        # Project documentation
+```
+
+---
+
+## 🔑 **API Endpoints**
+
+| Method | Endpoint          | Description                     | Auth Required |
+|--------|------------------|---------------------------------|--------------|
+| POST   | `/register`      | Register new user              | ❌          |
+| POST   | `/login`         | User login (returns JWT)       | ❌          |
+| GET    | `/protected-route` | Example of a protected route | ✅          |
+| POST   | `/refresh`       | Refresh access token           | ✅          |
+
+📌 Test the API in Swagger UI → [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+## 🎯 **Future Improvements**
+✅ OAuth2 authentication (Google, GitHub login)  
+✅ Role-based access control (Admin, User)  
+✅ Two-Factor Authentication (2FA)  
+✅ Full CRUD operations  
+
+---
+
+## 🐜 **License**
+This project is **MIT Licensed** – Feel free to use and modify!
+
+---
+
+## 🚀 **Like this project?**
+⭐ Give it a **star** on GitHub!
+🔗 **GitHub Repo:** [https://github.com/Yugpatel2006/secure-backend-fastapi](https://github.com/Yugpatel2006/secure-backend-fastapi)
